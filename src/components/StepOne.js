@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import StepIndicator from './StepIndicator';
 import { saveFormData, getFormData } from '../utils/storage';
 
@@ -9,17 +9,23 @@ function StepOne({ onNext }) {
     household: '',
     income: ''
   });
+  const initialized = useRef(false);
 
   // Load saved form data when component mounts
   useEffect(() => {
-    const savedData = getFormData();
-    if (savedData) {
-      const newFormData = { ...formData };
-      if (savedData.age) newFormData.age = savedData.age;
-      if (savedData.address) newFormData.address = savedData.address;
-      if (savedData.household) newFormData.household = savedData.household;
-      if (savedData.income) newFormData.income = savedData.income;
-      setFormData(newFormData);
+    if (!initialized.current) {
+      const savedData = getFormData();
+      if (savedData) {
+        setFormData(prevData => {
+          const newFormData = { ...prevData };
+          if (savedData.age) newFormData.age = savedData.age;
+          if (savedData.address) newFormData.address = savedData.address;
+          if (savedData.household) newFormData.household = savedData.household;
+          if (savedData.income) newFormData.income = savedData.income;
+          return newFormData;
+        });
+      }
+      initialized.current = true;
     }
   }, []);
 
