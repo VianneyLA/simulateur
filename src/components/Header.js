@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="header">
       <div className="logo-container">
-        <img src="/logo-placeholder.svg" alt="Logo Logiadapt" />
+        <img src={`${process.env.PUBLIC_URL}/logo-placeholder.svg`} alt="Logo Logiadapt" />
         <div className="logo-text">
           <div>Logiadapt</div>
           <div style={{ fontSize: '14px', color: '#666' }}>N°1 de l'adaptation en France</div>
