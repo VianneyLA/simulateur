@@ -2,18 +2,44 @@
   --primary-blue: #06345d;
   --light-blue: #94dcca;
   --light-pink: #ff7ba9;
-  --primary-pink: #ed0054;
+  --primary-pink: #dd0050;
   --dark-pink: #c80046;
   --light-gray: #f5f5f5;
-  --dark-gray: #333;
+  --dark-gray: #222222;
   
   /* New variables */
   --white: #ffffff;
   --off-white: #fafafa;
-  --light-border: #eaeaea;
+  --light-border: #d0d0d0;
   --shadow-light: 0 2px 4px rgba(0,0,0,0.03);
   --shadow-medium: 0 5px 15px rgba(0,0,0,0.08);
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Updated font choices for better legibility and bold, innovative feel */
+  --font-main: 'Open Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Montserrat', 'Trebuchet MS', 'Segoe UI', Roboto, sans-serif;
+  
+  /* Font size variables for better consistency and readability */
+  --font-size-xs: 14px;
+  --font-size-s: 16px;  
+  --font-size-m: 18px;
+  --font-size-l: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+  
+  /* Line height for better readability */
+  --line-height-text: 1.6;
+  --line-height-heading: 1.3;
+  
+  /* Letter spacing for improved legibility */
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-normal: 0px;
+  --letter-spacing-wide: 0.5px;
+  
+  /* Focus styles for better accessibility */
+  --focus-outline-width: 3px;
+  --focus-outline-style: solid;
+  --focus-outline-color: #2684FF;
+  --focus-offset: 2px;
 }
 
 body {
@@ -22,7 +48,8 @@ body {
   padding: 0;
   background-color: var(--off-white);
   color: var(--dark-gray);
-  line-height: 1.5;
+  line-height: var(--line-height-text);
+  font-size: var(--font-size-s);
 }
 
 .header {
@@ -80,17 +107,18 @@ body {
 }
 
 .brand-name {
-  font-size: 20px;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-l);
   font-weight: 700;
   color: var(--dark-gray);
-  letter-spacing: -0.5px;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .brand-tagline {
-  font-size: 11px;
+  font-size: 13px;
   color: #666;
   font-weight: 500;
-  letter-spacing: 0.2px;
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .container {
@@ -189,11 +217,13 @@ body {
 }
 
 h1 {
+  font-family: var(--font-heading);
   color: var(--primary-blue);
-  font-size: 24px;
+  font-size: var(--font-size-xl);
   margin-bottom: 24px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-heading);
 }
 
 .form-group {
@@ -203,7 +233,7 @@ h1 {
 label {
   display: block;
   margin-bottom: 6px;
-  font-size: 14px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--dark-gray);
 }
@@ -211,21 +241,22 @@ label {
 input[type="text"],
 input[type="number"] {
   width: 100%;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border: 1px solid var(--light-border);
   border-radius: 6px;
-  font-size: 14px;
+  font-size: var(--font-size-s);
   transition: all 0.2s ease;
   box-sizing: border-box;
   background-color: var(--white);
   box-shadow: none;
+  line-height: 1.5;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
   border-color: var(--primary-pink);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(237, 0, 84, 0.1);
+  box-shadow: 0 0 0 3px rgba(221, 0, 80, 0.25);
 }
 
 .button-container {
@@ -238,7 +269,7 @@ input[type="number"]:focus {
   padding: 14px 28px;
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: var(--font-size-s);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -246,6 +277,7 @@ input[type="number"]:focus {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  letter-spacing: var(--letter-spacing-normal);
 }
 
 .btn-secondary {
@@ -603,10 +635,12 @@ input[type="number"]:focus {
 }
 
 .section-title {
-  font-size: 20px;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-l);
   font-weight: 600;
   margin-bottom: 16px;
   color: var(--primary-blue);
+  line-height: var(--line-height-heading);
 }
 
 .contact-button {
@@ -616,15 +650,15 @@ input[type="number"]:focus {
 .contact-link {
   display: inline-flex;
   align-items: center;
-  padding: 7px 16px;
+  padding: 8px 18px;
   background-color: var(--primary-pink);
   color: white;
   border: none;
   border-radius: 4px;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0;
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-normal);
   transition: all 0.2s ease;
 }
 
@@ -719,21 +753,26 @@ h1 {
 }
 
 .page-content h1 {
+  font-family: var(--font-heading);
   color: #3a6ea5;
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: var(--font-size-xxl);
+  line-height: var(--line-height-heading);
 }
 
 .page-content h2 {
+  font-family: var(--font-heading);
   color: #3a6ea5;
   margin-top: 30px;
   margin-bottom: 15px;
-  font-size: 22px;
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-heading);
 }
 
 .page-content p {
   margin-bottom: 15px;
-  line-height: 1.6;
+  line-height: var(--line-height-text);
+  font-size: var(--font-size-s);
 }
 
 .page-content section {
@@ -865,4 +904,29 @@ h1 {
   font-weight: 500;
   max-width: 500px;
   line-height: 1.4;
+}
+
+/* Improved focus styles for all interactive elements */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-outline-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* Increase contrast for better legibility */
+button, a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Increased touch targets for better usability */
+input, button, select, .btn, .contact-link {
+  min-height: 44px; /* Minimum touch target size for elderly users */
+}
+
+/* Reduce motion for vestibular disorders */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 } 
