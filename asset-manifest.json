@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/simulateur/static/css/main.72c4cbd1.css",
+    "main.css": "/simulateur/static/css/main.9ac0561a.css",
     "main.js": "/simulateur/static/js/main.0a42dace.js",
     "index.html": "/simulateur/index.html",
-    "main.72c4cbd1.css.map": "/simulateur/static/css/main.72c4cbd1.css.map",
+    "main.9ac0561a.css.map": "/simulateur/static/css/main.9ac0561a.css.map",
     "main.0a42dace.js.map": "/simulateur/static/js/main.0a42dace.js.map"
   },
   "entrypoints": [
-    "static/css/main.72c4cbd1.css",
+    "static/css/main.9ac0561a.css",
     "static/js/main.0a42dace.js"
   ]
 }
