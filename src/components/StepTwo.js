@@ -53,54 +53,58 @@ function StepTwo({ onNext, onBack }) {
 
   return (
     <div className="container">
-      <StepIndicator currentStep={2} />
-      
-      <h1>📄 Votre projet</h1>
-      
-      <div className="project-section">
-        <h2 className="section-title">Quel type d'adaptation souhaitez-vous réaliser ? </h2>
-        
-        <div className="project-options">
-          {projectTypes.map((project) => (
-            <div 
-              key={project.id}
-              className={`project-option ${selectedProject === project.id ? 'selected' : ''}`}
-              onClick={() => handleProjectSelect(project.id)}
-            >
-              <span className="emoji">{project.emoji}</span>
-              <span className="name">{project.name}</span>
-            </div>
-          ))}
-        </div>
+      <div className="sidebar">
+        <StepIndicator currentStep={2} />
       </div>
       
-      <DocumentUploader 
-        title="Avis d'imposition"
-        emoji="📋"
-        documentType="avis d'imposition"
-        previewData={taxPreviewData}
-        onDocumentProcessed={handleDocumentProcessed}
-      />
-      
-      <DocumentUploader 
-        title="Justificatif de domicile"
-        emoji="🏠"
-        documentType="justificatif de domicile"
-        previewData={homePreviewData}
-        onDocumentProcessed={handleDocumentProcessed}
-      />
-      
-      <div className="button-container">
-        <button className="btn btn-secondary" onClick={onBack}>
-          <span className="btn-icon">←</span> Précédent
-        </button>
-        <button 
-          className="btn btn-primary" 
-          onClick={handleNextClick}
-          disabled={!processedDocuments.tax || !processedDocuments.home || !selectedProject}
-        >
-          Continuer <span className="btn-icon">→</span>
-        </button>
+      <div className="content-area">
+        <h1>Votre projet</h1>
+        
+        <div className="project-section">
+          <h2 className="section-title">Quel type d'adaptation souhaitez-vous réaliser ? </h2>
+          
+          <div className="project-options">
+            {projectTypes.map((project) => (
+              <div 
+                key={project.id}
+                className={`project-option ${selectedProject === project.id ? 'selected' : ''}`}
+                onClick={() => handleProjectSelect(project.id)}
+              >
+                <span className="emoji">{project.emoji}</span>
+                <span className="name">{project.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <DocumentUploader 
+          title="Avis d'imposition"
+          emoji="📋"
+          documentType="avis d'imposition"
+          previewData={taxPreviewData}
+          onDocumentProcessed={handleDocumentProcessed}
+        />
+        
+        <DocumentUploader 
+          title="Justificatif de domicile"
+          emoji="🏠"
+          documentType="justificatif de domicile"
+          previewData={homePreviewData}
+          onDocumentProcessed={handleDocumentProcessed}
+        />
+        
+        <div className="button-container">
+          <button className="btn btn-secondary" onClick={onBack}>
+            <span className="btn-icon">←</span> Précédent
+          </button>
+          <button 
+            className="btn btn-primary" 
+            onClick={handleNextClick}
+            disabled={!processedDocuments.tax || !processedDocuments.home || !selectedProject}
+          >
+            Continuer <span className="btn-icon">→</span>
+          </button>
+        </div>
       </div>
     </div>
   );

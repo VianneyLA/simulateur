@@ -6,18 +6,13 @@ function Header() {
       <div className="header-content">
         <div className="logo-container">
           <div className="logo">
-            <span className="logo-icon">🏠</span>
+            <span className="logo-icon">L</span>
           </div>
           <div className="logo-text">
             <div className="brand-name">Logiadapt</div>
-            <div className="brand-tagline">N°1 de l'adaptation</div>
           </div>
         </div>
         <div className="header-right">
-          <div className="rating">
-            <div className="stars">★★★★★</div>
-            <span className="rating-score">4.8/5 sur Google</span>
-          </div>
           <div className="contact-button">
             <a href="tel:0123456789" className="contact-link">
               Contact
