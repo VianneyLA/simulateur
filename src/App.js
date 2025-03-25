@@ -16,12 +16,25 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app-container">
       <Header />
       
-      {currentStep === 1 && <StepOne onNext={nextStep} />}
-      {currentStep === 2 && <StepTwo onNext={nextStep} onBack={prevStep} />}
-      {currentStep === 3 && <StepThree onBack={prevStep} />}
+      <main className="main-content">
+        {currentStep === 1 && <StepOne onNext={nextStep} />}
+        {currentStep === 2 && <StepTwo onNext={nextStep} onBack={prevStep} />}
+        {currentStep === 3 && <StepThree onBack={prevStep} />}
+      </main>
+      
+      <footer className="footer">
+        <div className="footer-content">
+          <div>© {new Date().getFullYear()} Logiadapt - Tous droits réservés</div>
+          <div className="footer-links">
+            <a href="#">Confidentialité</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

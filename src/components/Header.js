@@ -2,20 +2,30 @@ import React from 'react';
 
 function Header() {
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img src={`${process.env.PUBLIC_URL}/logo-placeholder.svg`} alt="Logo Logiadapt" />
-        <div className="logo-text">
-          <div>Logiadapt</div>
-          <div style={{ fontSize: '14px', color: '#666' }}>N°1 de l'adaptation en France</div>
+    <header className="header">
+      <div className="header-content">
+        <div className="logo-container">
+          <div className="logo">
+            <span className="logo-icon">🏠</span>
+          </div>
+          <div className="logo-text">
+            <div className="brand-name">Logiadapt</div>
+            <div className="brand-tagline">N°1 de l'adaptation</div>
+          </div>
+        </div>
+        <div className="header-right">
+          <div className="rating">
+            <div className="stars">★★★★★</div>
+            <span className="rating-score">4.8/5 sur Google</span>
+          </div>
+          <div className="contact-button">
+            <a href="tel:0123456789" className="contact-link">
+              Contact
+            </a>
+          </div>
         </div>
       </div>
-      <div className="rating">
-        <span>Avis Google :</span>
-        <span className="stars">★★★★☆</span>
-        <span>4.8/5</span>
-      </div>
-    </div>
+    </header>
   );
 }
 

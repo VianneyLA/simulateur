@@ -36,6 +36,10 @@ function StepOne({ onNext }) {
     saveFormData({ [name]: value });
   };
 
+  const isFormValid = () => {
+    return formData.age && formData.address && formData.household && formData.income;
+  };
+
   return (
     <div className="container">
       <StepIndicator currentStep={1} />
@@ -43,7 +47,9 @@ function StepOne({ onNext }) {
       <h1>📋 Analyse de votre situation</h1>
       
       <div className="form-group">
-        <label htmlFor="age">Quel est votre âge ? 👵👴</label>
+        <label htmlFor="age">
+          <span className="emoji">👵</span> Quel est votre âge ?
+        </label>
         <input 
           type="number" 
           id="age" 
@@ -53,11 +59,14 @@ function StepOne({ onNext }) {
           placeholder="Entrez votre âge"
           value={formData.age}
           onChange={handleChange}
+          required
         />
       </div>
       
       <div className="form-group">
-        <label htmlFor="address">Votre adresse 🏠</label>
+        <label htmlFor="address">
+          <span className="emoji">🏠</span> Votre adresse
+        </label>
         <input 
           type="text" 
           id="address" 
@@ -65,11 +74,14 @@ function StepOne({ onNext }) {
           placeholder="Entrez votre adresse complète"
           value={formData.address}
           onChange={handleChange}
+          required
         />
       </div>
       
       <div className="form-group">
-        <label htmlFor="household">Nombre de personnes dans le foyer 👨‍👩‍👧‍👦</label>
+        <label htmlFor="household">
+          <span className="emoji">👨‍👩‍👧‍👦</span> Nombre de personnes dans le foyer
+        </label>
         <input 
           type="number" 
           id="household" 
@@ -79,30 +91,37 @@ function StepOne({ onNext }) {
           placeholder="Nombre de personnes"
           value={formData.household}
           onChange={handleChange}
+          required
         />
       </div>
       
       <div className="form-group">
-        <label htmlFor="income">Revenu fiscal de référence (€) 💶</label>
+        <label htmlFor="income">
+          <span className="emoji">💶</span> Revenu fiscal de référence
+        </label>
         <input 
           type="number" 
           id="income" 
           name="income" 
           min="0" 
-          placeholder="Entrez votre revenu fiscal"
+          placeholder="Entrez votre revenu fiscal en euros"
           value={formData.income}
           onChange={handleChange}
+          required
         />
         <div className="help-text">Vous pouvez trouver cette information sur votre dernier avis d'imposition</div>
       </div>
       
       <div className="button-container">
-        <button className="btn btn-secondary" disabled>Précédent</button>
+        <button className="btn btn-secondary" disabled>
+          <span className="btn-icon">←</span> Précédent
+        </button>
         <button 
           className="btn btn-primary" 
           onClick={onNext}
+          disabled={!isFormValid()}
         >
-          Continuer
+          Continuer <span className="btn-icon">→</span>
         </button>
       </div>
     </div>

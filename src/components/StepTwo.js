@@ -8,6 +8,7 @@ function StepTwo({ onNext, onBack }) {
     tax: false,
     home: false
   });
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const handleDocumentProcessed = (success, type) => {
     if (success) {
@@ -22,6 +23,10 @@ function StepTwo({ onNext, onBack }) {
     // Clear saved form data when moving to the final step
     clearFormData();
     onNext();
+  };
+
+  const handleProjectSelect = (project) => {
+    setSelectedProject(project);
   };
 
   // Sample data for the document previews
@@ -39,11 +44,35 @@ function StepTwo({ onNext, onBack }) {
     date: { label: 'Date du document', value: '12/02/2025' }
   };
 
+  const projectTypes = [
+    { id: 'bathroom', name: 'Salle de bain', emoji: '🚿' },
+    { id: 'access', name: 'Accès au logement', emoji: '🚪' },
+    { id: 'kitchen', name: 'Cuisine adaptée', emoji: '🍳' },
+    { id: 'other', name: 'Autre adaptation', emoji: '🔧' }
+  ];
+
   return (
     <div className="container">
       <StepIndicator currentStep={2} />
       
-      <h1>📄 Récupération et analyse des documents</h1>
+      <h1>📄 Votre projet</h1>
+      
+      <div className="project-section">
+        <h2 className="section-title">Quel type d'adaptation souhaitez-vous réaliser ? </h2>
+        
+        <div className="project-options">
+          {projectTypes.map((project) => (
+            <div 
+              key={project.id}
+              className={`project-option ${selectedProject === project.id ? 'selected' : ''}`}
+              onClick={() => handleProjectSelect(project.id)}
+            >
+              <span className="emoji">{project.emoji}</span>
+              <span className="name">{project.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
       
       <DocumentUploader 
         title="Avis d'imposition"
@@ -62,13 +91,15 @@ function StepTwo({ onNext, onBack }) {
       />
       
       <div className="button-container">
-        <button className="btn btn-secondary" onClick={onBack}>Précédent</button>
+        <button className="btn btn-secondary" onClick={onBack}>
+          <span className="btn-icon">←</span> Précédent
+        </button>
         <button 
           className="btn btn-primary" 
           onClick={handleNextClick}
-          disabled={!processedDocuments.tax || !processedDocuments.home}
+          disabled={!processedDocuments.tax || !processedDocuments.home || !selectedProject}
         >
-          Continuer
+          Continuer <span className="btn-icon">→</span>
         </button>
       </div>
     </div>
