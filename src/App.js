@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import StepOne from './components/StepOne';
 import StepTwo from './components/StepTwo';
@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
+  const location = useLocation();
 
   const nextStep = () => {
     setCurrentStep(currentStep + 1);
@@ -41,7 +42,7 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename="/simulateur">
       <div className="app-container">
         <Header />
         
